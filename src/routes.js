@@ -23,6 +23,12 @@ const routes = [
     component: DashView,
     children: [
       {
+       path: 'excel',
+       alias: '',
+       component: ExcelView,
+       name: 'Excel',
+       meta: {description: 'Fachry'}
+      }, {
         path: 'dashboard',
         alias: '',
         component: DashboardView,
