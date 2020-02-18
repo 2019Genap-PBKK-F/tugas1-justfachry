@@ -20,7 +20,7 @@ export default {
     return {
       mahasiswa: [
         [
-          'Fachry'
+          '05111740000084', 'Fachry', '2017'
         ]
       ]
     }
@@ -30,24 +30,12 @@ export default {
       return {
         data: this.mahasiswa,
         columns: [
-          { type: 'text', title: 'Nama', width: '120px' }
-        //   {
-        //     type: "dropdown",
-        //     title: "Make",
-        //     width: "250px",
-        //     source: ["Alfa Romeo", "Audi", "BMW", "Honda", "Porshe"]
-        //   },
-        //   { type: "calendar", title: "Available", width: "250px" },
-        //   { type: "image", title: "Photo", width: "120px" },
-        //   { type: "checkbox", title: "Stock", width: "80px" },
-        //   {
-        //     type: "numeric",
-        //     title: "Price",
-        //     width: "120px",
-        //     mask: "$ #.##,00",
-        //     decimal: ","
-        //   },
-        //   { type: "color", width: "100px", render: "square" }
+          { type: 'text', title: 'NRP', width: '150px' },
+          { type: 'text', title: 'Nama', width: '200px' },
+          { type: 'dropdown', title: 'Angkatan', width: '150px', source: ['2014', '2015', '2016', '2017', '2018'] },
+          { type: 'calendar', title: 'Tanggal Lahir', width: '150px' },
+          { type: 'image', title: 'Photo', width: '200px' },
+          { type: 'checkbox', title: 'Aktif', width: '50px' }
         ]
       }
     }
@@ -71,10 +59,10 @@ export default {
 
 <style lang="css" scoped>
 .introduction {
-  font-size: 14px;
+  font-size: 50px;
+  text-align: center;
   padding: 0.5em;
   margin-bottom: 0.3em;
-  color: gold;
-  background: #111;
+  color: black;
 }
 </style>
