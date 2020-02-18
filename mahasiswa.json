@@ -1,0 +1,12 @@
+{
+    "mahasiswa":[
+        {
+            "id": 1,
+            "nrp": "0511174000084",
+            "nama": "Fachry",
+            "tanggal": "1999-08-24",
+            "angkatan": 2017,
+            "aktif": true
+        }
+    ]
+}

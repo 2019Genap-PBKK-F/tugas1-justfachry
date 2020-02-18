@@ -1,11 +1,9 @@
-<template lang="html">
+<template>
   <div class="wrapper-jexcel">
-    <div class="introduction"><span>Data Mahasiswa</span></div>
-    <input
-      type="button"
-      value="Add new row"
-      @click="jExcelObj.insertRow()"
-    /><br />
+      <h1 style="text-align:center">Data Mahasiswa</h1>
+    <input type="button" value="Add new row" @click="jExcelObj.insertRow()"/>
+    <input type="button" value="Delete Row" @click="jExcelObj.deleteRow()"/>
+    <br />
     <div id="spreadsheet" ref="spreadsheet"></div>
   </div>
 </template>
@@ -13,16 +11,15 @@
 <script>
 import jexcelStyle from 'jexcel/dist/jexcel.css' // eslint-disable-line no-unused-vars
 import jexcel from 'jexcel' // eslint-disable-line no-unused-vars
+import axios from 'axios'
 
 export default {
   name: 'jexcel',
   data() {
     return {
-      mahasiswa: [
-        [
-          '05111740000084', 'Fachry', '2017'
-        ]
-      ]
+      mahasiswa: [],
+      form: { id: '', nrp: '', nama: '', tanggal: '', angkatan: '', aktif: ''
+      }
     }
   },
   computed: {
@@ -41,28 +38,39 @@ export default {
     }
   },
   methods: {
-    insertRowc() {
-      console.log(this)
-      // this.spreadsheet.insertRow();
+    newRow() {
+      axios.post('http://localhost:3000/mahasiswa/', this.form).then(res => {
+        console.log(res.data)
+      })
+    },
+    updateRow(instance, cell, columns, row, value) {
+      axios.get('http://localhost:3000/mahasiswa/' + (parseInt(row) + 1)).then(res => {
+        var index = Object.values(res.data)
+        index[columns] = value
+        console.log(index)
+        axios.put('http://localhost:3000/mahasiswa/' + index[0], {
+          id: index[0],
+          nrp: index[1],
+          nama: index[2],
+          tanggal: index[3],
+          angkatan: index[4],
+          aktif: index[5]
+        }).then(res => {
+          console.log(res.data)
+        })
+      })
+    },
+    deleteRow(instance, row) {
+      axios.get('http://localhost:3000/mahasiswa/').then(res => {
+        var index = Object.values(res.data[row])
+        console.log(row)
+        axios.delete('http://localhost:3000/mahasiswa/' + index[0])
+      })
     }
   },
   mounted: function() {
-    // console.log(this.jExcelOptions);
-    // console.log(this.$refs["spreadsheet"]);
     const jExcelObj = jexcel(this.$refs['spreadsheet'], this.jExcelOptions)
-    // Object.assign(this, jExcelObj); // pollutes component instance
-    Object.assign(this, { jExcelObj })// tucks all methods under jExcelObj object in component instance
-    // console.log(this.jExcelObj);
+    Object.assign(this, { jExcelObj })
   }
 }
 </script>
-
-<style lang="css" scoped>
-.introduction {
-  font-size: 50px;
-  text-align: center;
-  padding: 0.5em;
-  margin-bottom: 0.3em;
-  color: black;
-}
-</style>
