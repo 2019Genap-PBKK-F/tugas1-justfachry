@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       mahasiswa: [],
-      form: { id: '', nrp: '', nama: '', tanggal: '', angkatan: '', aktif: ''
+      form: { id: '', nrp: '', nama: '', angkatan: '', tanggal: '', photo: '', aktif: ''
       }
     }
   },
@@ -52,9 +52,10 @@ export default {
           id: index[0],
           nrp: index[1],
           nama: index[2],
-          tanggal: index[3],
-          angkatan: index[4],
-          aktif: index[5]
+          angkatan: index[3],
+          tanggal: index[4],
+          photo: index[5],
+          aktif: index[6]
         }).then(res => {
           console.log(res.data)
         })
