@@ -10,7 +10,7 @@ import SettingView from './components/views/Setting.vue'
 import AccessView from './components/views/Access.vue'
 import ServerView from './components/views/Server.vue'
 import ReposView from './components/views/Repos.vue'
-import ExcelView from './components/views/Excel.vue'
+// import ExcelView from './components/views/Excel.vue'
 
 // Routes
 const routes = [
@@ -23,12 +23,6 @@ const routes = [
     component: DashView,
     children: [
       {
-       path: 'excel',
-       alias: '',
-       component: ExcelView,
-       name: 'Excel',
-       meta: {description: 'Fachry'}
-      }, {
         path: 'dashboard',
         alias: '',
         component: DashboardView,
@@ -39,7 +33,14 @@ const routes = [
         component: TablesView,
         name: 'Tables',
         meta: {description: 'Simple and advance table in CoPilot'}
-      }, {
+      },
+      // {
+      //   path: 'excel',
+      //   component: ExcelView,
+      //   name: 'Excel',
+      //   meta: {description: 'JExcel'}
+      // },
+      {
         path: 'tasks',
         component: TasksView,
         name: 'Tasks',
