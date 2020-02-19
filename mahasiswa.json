@@ -1,12 +1,31 @@
 {
-    "mahasiswa":[
-        {
-            "id": 1,
-            "nrp": "0511174000084",
-            "nama": "Fachry",
-            "tanggal": "1999-08-24",
-            "angkatan": 2017,
-            "aktif": true
-        }
-    ]
+  "mahasiswa": [
+    {
+      "id": 1,
+      "nrp": "0511174000084",
+      "nama": "Fachry",
+      "angkatan": "2017",
+      "tanggal": "1999-02-24 00:00:00",
+      "photo": "",
+      "aktif": true
+    },
+    {
+      "id": 2,
+      "nrp": "53454453",
+      "nama": "",
+      "angkatan": "",
+      "tanggal": "",
+      "photo": "",
+      "aktif": ""
+    },
+    {
+      "id": 3,
+      "nrp": "",
+      "nama": "",
+      "angkatan": "",
+      "tanggal": "",
+      "photo": "",
+      "aktif": ""
+    }
+  ]
 }

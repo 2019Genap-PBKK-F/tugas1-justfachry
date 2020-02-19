@@ -25,8 +25,14 @@ export default {
   computed: {
     jExcelOptions() {
       return {
+        url: 'http://localhost:3000/mahasiswa/',
         data: this.mahasiswa,
+        allowToolbar: true,
+        onchange: this.updateRow,
+        oninsertrow: this.newRow,
+        ondeleterow: this.deleteRow,
         columns: [
+          { type: 'hidden', title: 'id' },
           { type: 'text', title: 'NRP', width: '150px' },
           { type: 'text', title: 'Nama', width: '200px' },
           { type: 'dropdown', title: 'Angkatan', width: '150px', source: ['2014', '2015', '2016', '2017', '2018'] },
